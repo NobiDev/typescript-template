@@ -1,0 +1,44 @@
+{
+  "name": "@nobidev/typescript-template",
+  "license": "MIT",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "webpack build",
+    "start": "node .",
+    "lint": "eslint src *.ts"
+  },
+  "engines": {
+    "node": ">=12.22",
+    "npm": "^7.21.0",
+    "yarn": "^1.22.0"
+  },
+  "dependencies": {
+    "fs-extra": "^10.0.0",
+    "glob": "^7.1.7",
+    "lodash": "^4.17.20",
+    "lodash-decorators": "^6.0.1",
+    "utility-types": "^3.10.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.12",
+    "@types/glob": "^7.1.4",
+    "@types/lodash": "^4.14.171",
+    "@types/node": "^16.3.2",
+    "@types/uuid": "^8.3.1",
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/parser": "^4.28.3",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.30.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.2",
+    "ts-loader": "^9.2.3",
+    "ts-node": "^10.1.0",
+    "tsconfig-paths": "^3.10.1",
+    "tsconfig-paths-webpack-plugin": "^3.5.1",
+    "typescript": "^4.3.5",
+    "webpack": "^5.45.1",
+    "webpack-cli": "^4.7.2"
+  }
+}

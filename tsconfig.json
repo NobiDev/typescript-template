@@ -1,0 +1,72 @@
+{
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": ".",
+    "allowJs": true,
+    "alwaysStrict": true,
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "dist/.tsc",
+    "declarationDir": "dist/.tsc",
+    "sourceMap": true,
+    "inlineSources": true,
+    "stripInternal": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "lib": [
+      "dom",
+      "es2017"
+    ],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noImplicitAny": true,
+    // "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    // "noPropertyAccessFromIndexSignature": true,
+    // "noUncheckedIndexedAccess": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "target": "es2017",
+    "importHelpers": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictNullChecks": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    // "exactOptionalPropertyTypes": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    // "useUnknownInCatchVariables": true,
+    "allowUmdGlobalAccess": false,
+    // "explainFiles": true,
+    // "extendedDiagnostics": true,
+    // "listEmittedFiles": true,
+    // "listFiles": true,
+    "composite": true,
+    "incremental": true,
+    "generateCpuProfile": "dist/.tsc/profile.cpu_profile",
+    "tsBuildInfoFile": "dist/.tsc/tsc.tsbuildinfo",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "src/**/*.ts",
+    "tests/**/*.ts",
+    "tsconfig.json",
+    "webpack.config.ts"
+  ]
+}
