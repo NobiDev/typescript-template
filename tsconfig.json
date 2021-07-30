@@ -67,6 +67,7 @@
     "src/**/*.ts",
     "tests/**/*.ts",
     "tsconfig.json",
-    "webpack.config.ts"
+    "webpack.config.ts",
+    "jest.config.ts"
   ]
 }
