@@ -1,22 +1,31 @@
 import { ShutdownSignal } from '@/constants';
+import { Service } from '@/decorators';
 import { AppTerminated } from '@/exceptions';
 import { EventV1 } from '@/utils';
+import { Container } from 'inversify';
 import { values } from 'lodash';
 import { Once } from 'lodash-decorators';
+import { Subject } from 'rxjs';
+import type { Class } from 'utility-types';
 import { v1 } from 'uuid';
 
 export interface AppOptions {
   shutdownSignals?: ShutdownSignal[];
 }
 
+export const appSubject = new Subject<App>();
+
+@Service()
 export class App {
   protected readonly _appId: string;
   protected readonly _options: AppOptions;
+  protected readonly _container: Container;
   protected readonly _isTerminated: EventV1;
 
   public constructor(options: AppOptions = {}) {
     this._appId = v1();
     this._options = options;
+    this._container = new Container();
     this._isTerminated = new EventV1();
 
     this.initialize();
@@ -42,10 +51,22 @@ export class App {
     for (const signal of shutdownSignals) {
       process.on(signal, () => void this.terminate());
     }
+    this.getContainer().bind(App).toConstantValue(this);
+
+    appSubject.next(this);
+    appSubject.complete();
   }
 
   public getAppId(): string {
     return this._appId;
+  }
+
+  public getContainer(): Container {
+    return this._container;
+  }
+
+  public resolve<T>(target: Class<T>): T {
+    return this.getContainer().get<T>(target);
   }
 
   public async waitTerminal(): Promise<void> {
