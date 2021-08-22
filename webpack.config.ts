@@ -1,4 +1,5 @@
 import { config } from 'dotenv';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import { existsSync } from 'fs';
 import { mkdirpSync, writeJsonSync } from 'fs-extra';
 import glob from 'glob';
@@ -119,7 +120,19 @@ const buildWebpackConfiguration = (_: never, buildConfig: BuildConfiguration): C
         },
       },
     },
-    plugins: [new EnvironmentPlugin(keys(process.env))],
+    plugins: [
+      new EnvironmentPlugin(keys(process.env)),
+      new ForkTsCheckerWebpackPlugin({
+        async: true,
+        typescript: {
+          enabled: true,
+        },
+        eslint: {
+          files: ['src', 'tests'],
+          enabled: true,
+        },
+      }),
+    ],
   };
 
   for (const entry of ['index.ts', 'loader.ts'].reverse()) {
